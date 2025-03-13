@@ -81,5 +81,4 @@ module.exports = {
     displayGetCrud: displayGetCrud,
     getEditCrud: getEditCrud,
     putCrud: putCrud,
-    deleteCrud: deleteCrud
-}
+    deleteCrud: deleteCrud}

@@ -24,7 +24,51 @@ let handleLogin = async(req,res) =>{
       user: userData.user ? userData.user:{},
    })
 }
+ 
+let handleGetAllUsers = async(req, res) => {
+   let id = req.query.id; //ALl,id
+   if(!id){
+      return res.status(200).json({
+      errCode: 1,
+      errMessage: 'Missing required paramaters',
+      users: []
+      })
+   }
 
-module.exports ={ 
-   handleLogin: handleLogin,
+   let users = await userService.getAllUsers(id);
+   console.log(users)
+   return res.status(200).json({
+      errCode: 0,
+      errMessage: 'Ok',
+      users
+   })
+}
+let handleCreateNewUser = async (req,res) =>{
+   let message = await userService.createNewUser(req.body);
+   console.log(message);
+   return res.status(400).json(message);
+}
+
+let handleEditUser = async(req,res) =>{
+   let data = req.body; //lay du lieu tu clinet
+   let message = await userService.updateUserData(data);
+   return res.status(200).json(message);
+}
+
+let handleDeleteUser = async(req, res) =>{
+   if(!req.body.id){
+         return res.status(200).json({
+            errCode: 1,
+            errMessage: 'Missing required paramater'
+         })
+      }
+      let message = await userService.deleteUser(req.body.id);
+      return res.status(200).json(message);
+}
+module.exports = { 
+   handleLogin : handleLogin,
+   handleGetAllUsers : handleGetAllUsers,
+   handleCreateNewUser:handleCreateNewUser,
+   handleEditUser:handleEditUser,
+   handleDeleteUser:handleDeleteUser
 }
