@@ -1,0 +1,57 @@
+@import "../styles/common.scss";
+
+.custom-scrollbar {
+
+  .thumb-horizontal,
+  .thumb-vertical {
+    background-color: rgba($bg-scrollbar, 0.4);
+    box-shadow: inset 1px 1px 0 rgba($bg-scrollbar, 0.10), inset 0 -1px 0 rgba($bg-scrollbar, 0.07);
+    border-radius: 10px; // Đặt border-radius cho cả thumb
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($bg-scrollbar, 0.8);
+      box-shadow: inset 1px 1px 1px rgba($bg-scrollbar, 0.50);
+    }
+
+    &:active {
+      background-color: rgba($bg-scrollbar, 0.9);
+      box-shadow: inset 1px 1px 3px rgba($bg-scrollbar, 0.6);
+    }
+  }
+
+  .track-horizontal,
+  .track-vertical {
+    opacity: 0; // Bắt đầu với opacity 0
+    transition: opacity 0.2s; // Thêm hiệu ứng chuyển tiếp
+
+    &:hover,
+    &:active {
+      opacity: 1 !important; // Khi hover hoặc active, opacity trở lại 1
+    }
+  }
+
+  .track-horizontal {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 5px !important;
+
+    &:hover,
+    &:active {
+      height: 10px !important;
+    }
+  }
+
+  .track-vertical {
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 5px !important;
+
+    &:hover,
+    &:active {
+      width: 10px !important;
+    }
+  }
+}

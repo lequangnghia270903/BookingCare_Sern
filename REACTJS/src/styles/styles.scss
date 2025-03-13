@@ -1,0 +1,15 @@
+@import "variables";
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Đặt đường dẫn font Awesome
+$fa-font-path: "~@fortawesome/fontawesome-free-webfonts/webfonts";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss";
+@import "~@fortawesome/fontawesome-free-webfonts/scss/fa-brands.scss";
+
+// Nhập các tệp SASS khác
+@import "base";
+@import "form";
+
+// Nếu cần, bạn có thể thêm các hàm hoặc biến bổ sung để thay thế hàm màu đã lỗi thời
